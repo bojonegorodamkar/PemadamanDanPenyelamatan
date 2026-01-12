@@ -3,253 +3,412 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Damkar Bojonegoro</title>
-    <link rel="icon" type="image/png" href="logo1.png">
+    <title>Dinas Pemadam Kebakaran dan Penyelamatan Kabupaten Bojonegoro</title>
+    <link rel="icon" href="logo1.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-        }
-
-        body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            padding: 20px;
         }
-
+        
+        :root {
+            --primary: #d32f2f;
+            --primary-dark: #b71c1c;
+            --secondary: #ff9800;
+            --light: #f8f9fa;
+            --dark: #333;
+            --gray: #6c757d;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            color: var(--dark);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        
         .container {
-            max-width: 600px;
+            max-width: 1200px;
             margin: 0 auto;
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            padding: 0 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 25px 0;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            position: relative;
             overflow: hidden;
         }
-
-        .header {
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            padding: 30px 20px;
-            text-align: center;
-            color: white;
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.1" d="M0,128L48,144C96,160,192,192,288,186.7C384,181,480,139,576,138.7C672,139,768,181,864,197.3C960,213,1056,203,1152,181.3C1248,160,1344,128,1392,112L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+            background-size: cover;
+            background-position: bottom;
         }
-
+        
         .logo-container {
             display: flex;
             justify-content: center;
-            align-items: center;
-            gap: 20px;
+            gap: 25px;
             margin-bottom: 20px;
-            flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
         }
-
-        .logo-placeholder {
-            width: 80px;
-            height: 80px;
-            background: rgba(255,255,255,0.2);
-            border: 3px dashed rgba(255,255,255,0.5);
-            border-radius: 15px;
+        
+        .logo {
+            width: 100px;
+            height: 100px;
+            background: white;
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 12px;
-            color: rgba(255,255,255,0.8);
-            text-align: center;
-            padding: 10px;
+            font-weight: bold;
+            color: var(--primary);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+            overflow: hidden;
         }
-
-        .logo-placeholder img {
+        
+        .logo img {
             width: 100%;
             height: 100%;
             object-fit: contain;
+            padding: 8px;
         }
-
-        .header h1 {
-            font-size: 24px;
-            margin-bottom: 5px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        
+        .logo:hover {
+            transform: translateY(-5px);
         }
-
-        .header p {
-            font-size: 14px;
-            opacity: 0.95;
+        
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
         }
-
-        .content {
-            padding: 30px 20px;
-        }
-
-        .section {
-            margin-bottom: 30px;
-        }
-
-        .section-title {
-            font-size: 18px;
-            font-weight: bold;
-            color: #333;
-            margin-bottom: 15px;
-            padding-left: 10px;
-            border-left: 4px solid #f5576c;
-        }
-
-        .link-card {
-            display: block;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            text-decoration: none;
-            padding: 18px 20px;
-            border-radius: 12px;
-            margin-bottom: 12px;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
-        }
-
-        .link-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
-        }
-
-        .link-card.green {
-            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
-            box-shadow: 0 4px 15px rgba(17, 153, 142, 0.4);
-        }
-
-        .link-card.green:hover {
-            box-shadow: 0 6px 20px rgba(17, 153, 142, 0.6);
-        }
-
-        .link-card.orange {
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            box-shadow: 0 4px 15px rgba(245, 87, 108, 0.4);
-        }
-
-        .link-card.orange:hover {
-            box-shadow: 0 6px 20px rgba(245, 87, 108, 0.6);
-        }
-
-        .link-card.blue {
-            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-            box-shadow: 0 4px 15px rgba(79, 172, 254, 0.4);
-        }
-
-        .link-card.blue:hover {
-            box-shadow: 0 6px 20px rgba(79, 172, 254, 0.6);
-        }
-
-        .link-title {
-            font-size: 16px;
-            font-weight: 600;
-            margin-bottom: 4px;
-        }
-
-        .link-subtitle {
-            font-size: 13px;
+        
+        .bio {
+            font-style: italic;
+            font-size: 1rem;
             opacity: 0.9;
+            position: relative;
+            z-index: 1;
+            max-width: 600px;
+            margin: 0 auto;
         }
-
-        .footer {
-            background: #f8f9fa;
-            padding: 25px 20px;
+        
+        .header2 {
+            background: linear-gradient(135deg, var(--secondary) 0%, #f57c00 100%);
+            color: white;
+            padding: 18px 0;
             text-align: center;
-            border-top: 3px solid #f5576c;
-        }
-
-        .footer-message {
-            font-size: 18px;
             font-weight: bold;
-            color: #f5576c;
+            font-size: 1.2rem;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .content {
+            padding: 40px 0;
+        }
+        
+        .links-section {
+            background-color: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            margin-bottom: 40px;
+            border-left: 5px solid var(--primary);
+        }
+        
+        .section-title {
+            color: var(--primary);
+            margin-bottom: 25px;
+            text-align: center;
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .section-title i {
+            font-size: 1.5rem;
+        }
+        
+        .link-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .link-card {
+            background: white;
+            border: 2px solid #e5e7eb;
+            border-radius: 10px;
+            padding: 20px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .link-card::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 5px;
+            transition: width 0.3s ease;
+        }
+        
+        .link-card.red {
+            border-color: #fecaca;
+            background: linear-gradient(135deg, #fff 0%, #fee2e2 100%);
+        }
+        
+        .link-card.red::before {
+            background: var(--primary);
+        }
+        
+        .link-card.red:hover {
+            border-color: var(--primary);
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(211, 47, 47, 0.2);
+        }
+        
+        .link-card.blue {
+            border-color: #bfdbfe;
+            background: linear-gradient(135deg, #fff 0%, #dbeafe 100%);
+        }
+        
+        .link-card.blue::before {
+            background: #2563eb;
+        }
+        
+        .link-card.blue:hover {
+            border-color: #2563eb;
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+        }
+        
+        .link-card.navy {
+            border-color: #c7d2fe;
+            background: linear-gradient(135deg, #fff 0%, #e0e7ff 100%);
+        }
+        
+        .link-card.navy::before {
+            background: #4338ca;
+        }
+        
+        .link-card.navy:hover {
+            border-color: #4338ca;
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(67, 56, 202, 0.2);
+        }
+        
+        .link-card:hover::before {
+            width: 100%;
+            opacity: 0.1;
+        }
+        
+        .link-card-title {
+            font-weight: bold;
+            font-size: 1.1rem;
+            color: var(--dark);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .link-card-subtitle {
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+        
+        .link-card i {
+            font-size: 1.2rem;
+        }
+        
+        .link-card.red .link-card-title {
+            color: var(--primary-dark);
+        }
+        
+        .link-card.blue .link-card-title {
+            color: #1e40af;
+        }
+        
+        .link-card.navy .link-card-title {
+            color: #312e81;
+        }
+        
+        footer {
+            background: linear-gradient(135deg, var(--dark) 0%, #212529 100%);
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 50px;
+        }
+        
+        .footer-message {
+            font-size: 1.2rem;
+            font-weight: bold;
             margin-bottom: 5px;
         }
-
-        .footer-submessage {
-            font-size: 14px;
-            color: #666;
-        }
-
-        @media (max-width: 480px) {
-            .header h1 {
-                font-size: 20px;
+        
+        @media (max-width: 767px) {
+            .logo-container {
+                gap: 15px;
             }
-
-            .logo-placeholder {
-                width: 70px;
-                height: 70px;
+            
+            .logo {
+                width: 80px;
+                height: 80px;
             }
-
+            
+            h1 {
+                font-size: 1.6rem;
+            }
+            
+            .header2 {
+                font-size: 1rem;
+                padding: 15px 10px;
+            }
+            
+            .links-section {
+                padding: 20px;
+            }
+            
             .section-title {
-                font-size: 16px;
+                font-size: 1.5rem;
             }
-
-            .link-title {
-                font-size: 15px;
+            
+            .link-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (min-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
+    <header>
+        <div class="container">
             <div class="logo-container">
-                <div class="logo-placeholder">
-                    <img src="logo1.png" alt="Logo Instansi">
+                <div class="logo">
+                    <img src="logo1.png" alt="Logo Dinas Pemadam Kebakaran 1">
                 </div>
-                <div class="logo-placeholder">
-                    <img src="logo2.png" alt="Logo Damkar">
+                <div class="logo">
+                    <img src="logo2.png" alt="Logo Dinas Pemadam Kebakaran 2">
                 </div>
             </div>
             <h1>Dinas Pemadam Kebakaran dan Penyelamatan</h1>
-            <p>Kabupaten Bojonegoro</p>
+            <p class="bio">Kabupaten Bojonegoro</p>
         </div>
-
-        <div class="content">
-            <div class="section">
-                <div class="section-title">📝 Kirim Laporan Anda Di Sini</div>
-                
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSc2K2N-NV56B-KBlRPRNPpRLSovTK06imjtM6FPgW9xX9w6SA/viewform?usp=publish-editor" target="_blank" class="link-card orange">
-                    <div class="link-title">Form Pemadaman</div>
-                    <div class="link-subtitle">Laporkan kejadian kebakaran</div>
-                </a>
-
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSfzAOta2Xwe5vErmbjOVgKWt782wkms77CbdyLSJ5u060brGw/viewform?usp=publish-editor" target="_blank" class="link-card orange">
-                    <div class="link-title">Form Penyelamatan dan Evakuasi</div>
-                    <div class="link-subtitle">Laporkan kegiatan penyelamatan</div>
-                </a>
-            </div>
-
-            <div class="section">
-                <div class="section-title">📊 Data Laporan</div>
-                
-                <a href="https://docs.google.com/spreadsheets/d/1ZcreJT-TdBmccFMGyzGSatgFBYBxg5eEG83z0Ca9-OU/edit?usp=sharing" target="_blank" class="link-card green">
-                    <div class="link-title">Spreadsheet Laporan Pemadaman</div>
-                    <div class="link-subtitle">Lihat data laporan pemadaman</div>
-                </a>
-
-                <a href="https://docs.google.com/spreadsheets/d/1yEFFKNgqOPHrBU9Xluq8uh9APpM5m8zhRQDJ5d92EwE/edit?usp=sharing" target="_blank" class="link-card green">
-                    <div class="link-title">Spreadsheet Laporan Penyelamatan dan Evakuasi</div>
-                    <div class="link-subtitle">Lihat data laporan penyelamatan</div>
-                </a>
-            </div>
-
-            <div class="section">
-                <div class="section-title">📁 Arsip Dokumentasi</div>
-
-                <a href="https://drive.google.com/drive/folders/1dD_kQ1yI-QqCR6-p9va0i2pgRPDstSk7?usp=drive_link" target="_blank" class="link-card blue">
-                    <div class="link-title">Arsip Pemadaman</div>
-                    <div class="link-subtitle">Dokumentasi kejadian pemadaman</div>
-                </a>
-
-                <a href="https://drive.google.com/drive/folders/11jEVAmgtZgqD-bDhNseH1Q6lnv87SwJu?usp=sharing" target="_blank" class="link-card blue">
-                    <div class="link-title">Arsip Penyelamatan dan Evakuasi</div>
-                    <div class="link-subtitle">Dokumentasi kegiatan penyelamatan</div>
-                </a>
-            </div>
-        </div>
-
-        <div class="footer">
-            <div class="footer-message">💪 Semangat Jaga Piketnya!</div>
-            <div class="footer-submessage">Tetap siaga, tetap waspada</div>
+    </header>
+    
+    <div class="header2">
+        <div class="container">
+            <i class="fas fa-file-alt"></i> Kirim Laporan Anda Di Sini - Siaga 24 Jam
         </div>
     </div>
+    
+    <div class="content">
+        <div class="container">
+            <div class="links-section">
+                <h2 class="section-title"><i class="fas fa-edit"></i> Form Pelaporan</h2>
+                <div class="link-grid">
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSc2K2N-NV56B-KBlRPRNPpRLSovTK06imjtM6FPgW9xX9w6SA/viewform?usp=publish-editor" target="_blank" class="link-card red">
+                        <div class="link-card-title">
+                            <i class="fas fa-fire"></i>
+                            Form Pemadaman
+                        </div>
+                        <div class="link-card-subtitle">Laporkan kejadian kebakaran</div>
+                    </a>
+                    
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfzAOta2Xwe5vErmbjOVgKWt782wkms77CbdyLSJ5u060brGw/viewform?usp=publish-editor" target="_blank" class="link-card red">
+                        <div class="link-card-title">
+                            <i class="fas fa-hand-holding-heart"></i>
+                            Form Penyelamatan dan Evakuasi
+                        </div>
+                        <div class="link-card-subtitle">Laporkan kegiatan penyelamatan</div>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="links-section">
+                <h2 class="section-title"><i class="fas fa-table"></i> Data Laporan</h2>
+                <div class="link-grid">
+                    <a href="https://docs.google.com/spreadsheets/d/1ZcreJT-TdBmccFMGyzGSatgFBYBxg5eEG83z0Ca9-OU/edit?usp=sharing" target="_blank" class="link-card blue">
+                        <div class="link-card-title">
+                            <i class="fas fa-chart-line"></i>
+                            Spreadsheet Laporan Pemadaman
+                        </div>
+                        <div class="link-card-subtitle">Lihat data laporan pemadaman</div>
+                    </a>
+                    
+                    <a href="https://docs.google.com/spreadsheets/d/1yEFFKNgqOPHrBU9Xluq8uh9APpM5m8zhRQDJ5d92EwE/edit?usp=sharing" target="_blank" class="link-card blue">
+                        <div class="link-card-title">
+                            <i class="fas fa-chart-bar"></i>
+                            Spreadsheet Laporan Penyelamatan dan Evakuasi
+                        </div>
+                        <div class="link-card-subtitle">Lihat data laporan penyelamatan</div>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="links-section">
+                <h2 class="section-title"><i class="fas fa-folder-open"></i> Arsip Dokumentasi</h2>
+                <div class="link-grid">
+                    <a href="https://drive.google.com/drive/folders/1dD_kQ1yI-QqCR6-p9va0i2pgRPDstSk7?usp=drive_link" target="_blank" class="link-card navy">
+                        <div class="link-card-title">
+                            <i class="fas fa-images"></i>
+                            Arsip Pemadaman
+                        </div>
+                        <div class="link-card-subtitle">Dokumentasi kejadian pemadaman</div>
+                    </a>
+                    
+                    <a href="https://drive.google.com/drive/folders/11jEVAmgtZgqD-bDhNseH1Q6lnv87SwJu?usp=sharing" target="_blank" class="link-card navy">
+                        <div class="link-card-title">
+                            <i class="fas fa-photo-video"></i>
+                            Arsip Penyelamatan dan Evakuasi
+                        </div>
+                        <div class="link-card-subtitle">Dokumentasi kegiatan penyelamatan</div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-message"><i class="fas fa-fire-extinguisher"></i> Semangat Jaga Piketnya!</div>
+            <p>Siaga 24 Jam • Siap Melayani</p>
+            <p style="margin-top: 10px; font-size: 0.9rem;">&copy; 2025 Dinas Pemadam Kebakaran dan Penyelamatan Kabupaten Bojonegoro</p>
+        </div>
+    </footer>
 </body>
 </html>
