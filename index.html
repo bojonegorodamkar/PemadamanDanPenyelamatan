@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Damkar Bojonegoro</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            padding: 30px 20px;
+            text-align: center;
+            color: white;
+        }
+
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .logo-placeholder {
+            width: 80px;
+            height: 80px;
+            background: rgba(255,255,255,0.2);
+            border: 3px dashed rgba(255,255,255,0.5);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            color: rgba(255,255,255,0.8);
+            text-align: center;
+            padding: 10px;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 5px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .header p {
+            font-size: 14px;
+            opacity: 0.95;
+        }
+
+        .content {
+            padding: 30px 20px;
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 15px;
+            padding-left: 10px;
+            border-left: 4px solid #f5576c;
+        }
+
+        .link-card {
+            display: block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            padding: 18px 20px;
+            border-radius: 12px;
+            margin-bottom: 12px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .link-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+        }
+
+        .link-card.green {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            box-shadow: 0 4px 15px rgba(17, 153, 142, 0.4);
+        }
+
+        .link-card.green:hover {
+            box-shadow: 0 6px 20px rgba(17, 153, 142, 0.6);
+        }
+
+        .link-card.orange {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            box-shadow: 0 4px 15px rgba(245, 87, 108, 0.4);
+        }
+
+        .link-card.orange:hover {
+            box-shadow: 0 6px 20px rgba(245, 87, 108, 0.6);
+        }
+
+        .link-card.blue {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            box-shadow: 0 4px 15px rgba(79, 172, 254, 0.4);
+        }
+
+        .link-card.blue:hover {
+            box-shadow: 0 6px 20px rgba(79, 172, 254, 0.6);
+        }
+
+        .link-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .link-subtitle {
+            font-size: 13px;
+            opacity: 0.9;
+        }
+
+        .footer {
+            background: #f8f9fa;
+            padding: 25px 20px;
+            text-align: center;
+            border-top: 3px solid #f5576c;
+        }
+
+        .footer-message {
+            font-size: 18px;
+            font-weight: bold;
+            color: #f5576c;
+            margin-bottom: 5px;
+        }
+
+        .footer-submessage {
+            font-size: 14px;
+            color: #666;
+        }
+
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .logo-placeholder {
+                width: 70px;
+                height: 70px;
+            }
+
+            .section-title {
+                font-size: 16px;
+            }
+
+            .link-title {
+                font-size: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo-container">
+                <div class="logo-placeholder">Logo Instansi</div>
+                <div class="logo-placeholder">Logo Damkar</div>
+            </div>
+            <h1>Dinas Pemadam Kebakaran dan Penyelamatan</h1>
+            <p>Kabupaten Bojonegoro</p>
+        </div>
+
+        <div class="content">
+            <div class="section">
+                <div class="section-title">📝 Kirim Laporan Anda Di Sini</div>
+                
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSc2K2N-NV56B-KBlRPRNPpRLSovTK06imjtM6FPgW9xX9w6SA/viewform?usp=publish-editor" target="_blank" class="link-card orange">
+                    <div class="link-title">Form Pemadaman</div>
+                    <div class="link-subtitle">Laporkan kejadian kebakaran</div>
+                </a>
+
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSfzAOta2Xwe5vErmbjOVgKWt782wkms77CbdyLSJ5u060brGw/viewform?usp=publish-editor" target="_blank" class="link-card orange">
+                    <div class="link-title">Form Penyelamatan dan Evakuasi</div>
+                    <div class="link-subtitle">Laporkan kegiatan penyelamatan</div>
+                </a>
+            </div>
+
+            <div class="section">
+                <div class="section-title">📊 Data Laporan</div>
+                
+                <a href="https://docs.google.com/spreadsheets/d/1ZcreJT-TdBmccFMGyzGSatgFBYBxg5eEG83z0Ca9-OU/edit?usp=sharing" target="_blank" class="link-card green">
+                    <div class="link-title">Spreadsheet Laporan Pemadaman</div>
+                    <div class="link-subtitle">Lihat data laporan pemadaman</div>
+                </a>
+
+                <a href="https://docs.google.com/spreadsheets/d/1yEFFKNgqOPHrBU9Xluq8uh9APpM5m8zhRQDJ5d92EwE/edit?usp=sharing" target="_blank" class="link-card green">
+                    <div class="link-title">Spreadsheet Laporan Penyelamatan dan Evakuasi</div>
+                    <div class="link-subtitle">Lihat data laporan penyelamatan</div>
+                </a>
+            </div>
+
+            <div class="section">
+                <div class="section-title">📁 Arsip Dokumentasi</div>
+
+                <a href="https://drive.google.com/drive/folders/1dD_kQ1yI-QqCR6-p9va0i2pgRPDstSk7?usp=drive_link" target="_blank" class="link-card blue">
+                    <div class="link-title">Arsip Pemadaman</div>
+                    <div class="link-subtitle">Dokumentasi kejadian pemadaman</div>
+                </a>
+
+                <a href="https://drive.google.com/drive/folders/11jEVAmgtZgqD-bDhNseH1Q6lnv87SwJu?usp=sharing" target="_blank" class="link-card blue">
+                    <div class="link-title">Arsip Penyelamatan dan Evakuasi</div>
+                    <div class="link-subtitle">Dokumentasi kegiatan penyelamatan</div>
+                </a>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="footer-message">💪 Semangat Jaga Piketnya!</div>
+            <div class="footer-submessage">Tetap siaga, tetap waspada</div>
+        </div>
+    </div>
+</body>
+</html>
